@@ -10,6 +10,41 @@
 <body>
 <h1>UTC Micro Service Convertor</h1>
 <h2>brought to you by the letter 'D'</h2>
+  <form action="/" method="POST" name="myForm">
+    <p><label for="date_string">Date String:</label>
+      <input type="text" name="date_string" id="datestring"></p>
+
+      <input value="Submit" type="submit" onclick="submitform()">
+  </form>
+<script type="text/javascript">
+  // function submitform(){
+  //   alert("Sending JSON");
+  //   let xhr = new XMLHttpRequest();
+  //   xhr.open(form.method, form.action, true);
+  //   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  //   var j = {
+  //     "dateString": document.getElementById(datestring)
+  //   };
+  //   xhr.send(JSON.stringify(j));
+
+    let formData = JSON.stringify($("#myForm").serializeArray());
+
+    $.ajax({
+      type: "POST",
+      url: "serverUrl",
+      data: formData,
+      success: function(){
+        alert("Succeeded in sending JSON")},
+      dataType: "json",
+      contentType: "application/json"
+    });
+  }
+
+</script>
+
+<!--
+  "2007-04-05T14:30"
+-->
 </body>
 
 
