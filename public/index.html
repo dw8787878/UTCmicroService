@@ -27,17 +27,34 @@
   //   };
   //   xhr.send(JSON.stringify(j));
 
-    let formData = JSON.stringify($("#myForm").serializeArray());
+    // let formData = JSON.stringify($("#myForm").serializeArray());
 
-    $.ajax({
-      type: "POST",
-      url: "serverUrl",
-      data: formData,
-      success: function(){
-        alert("Succeeded in sending JSON")},
-      dataType: "json",
-      contentType: "application/json"
-    });
+    // $.ajax({
+    //   type: "POST",
+    //   url: "serverUrl",
+    //   data: formData,
+    //   success: function(){
+    //     alert("Succeeded in sending JSON")},
+    //   dataType: "json",
+    //   contentType: "application/json"
+    // });
+  function submitform() {
+  let newName = 'John Smith',
+      xhr = new XMLHttpRequest();
+
+  xhr.open('POST', 'myservice/username?id=some-unique-id');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onload = function () {
+    if (xhr.status === 200 & xhr.responseText !== newName) {
+      alert ('Something went wrong.  Name is now ' + xhr.responseText);
+    }
+    else if (xhr.status !== 200) {
+      alert ('Request failed.  Returned status of ' + xhr.status);
+    }
+  };
+
+  xhr.send(encodeURI('name=' + newName));''
+
   }
 
 </script>
