@@ -1,15 +1,15 @@
 # UTCmicroService
 
-Freecodecamp work shop - API Project: Timestamp Microservice.  
+Freecodecamp work shop - API Project: Timestamp Microservice.
 
 1. The API endpoint is GET [project_url]/api/timestamp/:date_string?
 
 2. A date string is valid if can be successfully parsed by new Date(date_string).
-Note that the unix timestamp needs to be an integer(not a string) specifying milliseconds.  
-In our test we will use date strings compliant with ISO-8601 (e.g. "2016-11-20") because this 
+Note that the unix timestamp needs to be an integer(not a string) specifying milliseconds.
+In our test we will use date strings compliant with ISO-8601 (e.g. "2016-11-20") because this
 will ensure an UTC timestamp.
 
-3. If the date string is empty it should be equivalent to trigger new Date(), i.e. the service uses 
+3. If the date string is empty it should be equivalent to trigger new Date(), i.e. the service uses
 the current timestamp.
 
 4. If the date string is valid the api returns a JSON having the structure
@@ -17,3 +17,5 @@ the current timestamp.
 
 5. If the date string is invalid the api returns a JSON having the structure
 {"error" : "Invalid Date" }.
+
+** I solved this with some modifications such as creating an HTML form, and returning HTTP rather then JSON.  But can be easily refactored to JSON if needed.

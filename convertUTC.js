@@ -1,11 +1,9 @@
 exports.convertUTC = (dateString) => {
   let yrMonthDay = dateString.split('-');
-  let UTCResult = '';
-
-};
-
-function convertYear(year){
-  return year;
+  let UTCResult = `${yrMonthDay[2]} ${convertMonth(yrMonthDay[1])} ${yrMonthDay[0]}`;
+  let event = new Date(UTCResult);
+  UTCResult = event.toUTCString();
+  return UTCResult;
 };
 
 function convertMonth(month){
@@ -24,8 +22,4 @@ function convertMonth(month){
     case '12' : return 'Dec';
     default : console.log('Something went very wrong in converting to UTC Month');
   }
-};
-
-function convertDay(){
-
 };

@@ -26,7 +26,7 @@ app.post('/', (req, res) => {
 
   if (validFlag){
 
-    res.send(`This is your input: ${dateString} <br> This is the converted UTC format: ${convertUTC()}`)
+    res.send(`This is your input: ${dateString} <br> This is the converted UTC format: ${convertUTC(dateString)}`)
   } else {
     res.send("Your input is not a valid ISO 8601 date string.  Please see: <a href='https://en.wikipedia.org/wiki/ISO_8601'>wiki ISO 8601</a>");
   }
